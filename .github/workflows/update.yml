@@ -35,7 +35,7 @@ jobs:
         run: make
         env:
           ADS_DEV_KEY: ${{secrets.ADS_DEV_KEY}}
-          GITHUB_API_KEY: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_API_KEY: ${{secrets.TOKEN_GITHUB}}
       - name: Push updated data files
         continue-on-error: true
         run: |
@@ -50,7 +50,7 @@ jobs:
       - uses: dfm/force-push-branch-action@v1
         continue-on-error: true
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN_GITHUB }}
           branch-suffix: "-pdf"
           commit-message: "updating pdfs"
           path: "tex/*.pdf"
